@@ -79,7 +79,7 @@ void generardatos(Libro* libros, int numLibros) {
     const string listaAutores[] = {"Adela Zamudio", "Jaime Mendoza Gonzales", "Armando Chirveches", "Manuel Vargas", "Emilio Martinez Cardona", "Isabel Mesa de Inchauste", "Enrique Finot", "Gladys Rivero de Jimenez", "Hugo Menacho"};
     const string listaEditoriales[] = {"EPDB", "La Hoguera", "El Pais", "3K", "Muela del Diablo", "El Cuervo", "Grito del Viento", "Nuevo Milenio", "Libros del Cardon", "Nuevo Mundo", "El Sol", "Monte Avila", "Los Amigos del Libro", "Punto de Lectura","El Quetzal"};
     const string listaIdiomas[] = {"Espanol", "Ingles", "Italiano"};
-
+//Bucle para hacer los datos dependiendo de la cantidad que haya ingresado en el main (4 libros actualmente)
     for (int i = 0; i < numLibros; ++i) {
         (*(libros + i)).sTitulo = listaLibros[rand() % (sizeof(listaLibros) / sizeof(listaLibros[0]))];
         (*(libros + i)).sAutor = listaAutores[rand() % (sizeof(listaAutores) / sizeof(listaAutores[0]))];
@@ -95,7 +95,7 @@ void generardatos(Libro* libros, int numLibros) {
 void generardatos(Usuario* usuarios, int numUsuarios, const string* listaNombres, const string* listaApellidos) {
 	//Datos de los usuarios para el tipo
     string listaTiposUsuarios[] = {"Estudiante", "Profesor", "Administrativo"};
-
+//Bucle para hacer los datos dependiendo de la cantidad que haya ingresado en el main (5 usuarios actualmente)
     for (int i = 0; i < numUsuarios; ++i) {
         (*(usuarios + i)).nIDUsuario = i + 1;
         (*(usuarios + i)).sNombre = listaNombres[rand() % 8]; 
@@ -107,7 +107,7 @@ void generardatos(Usuario* usuarios, int numUsuarios, const string* listaNombres
 
 void generardatos(Bibliotecario* bibliotecarios, int numBibliotecarios, const string* listaNombres, const string* listaApellidos) {
     string listaHorarios[] = {"8:00 - 16:00", "9:00 - 17:00", "10:00 - 18:00"};
-
+//Bucle para hacer los datos dependiendo de la cantidad que haya ingresado en el main (5 bibliotecarios actualmente)
     for (int i = 0; i < numBibliotecarios; ++i) {
         (*(bibliotecarios + i)).nIDEmpleado = 1000 + i;
         (*(bibliotecarios + i)).sNombre = listaNombres[rand() % 8]; 
@@ -122,7 +122,7 @@ void mostrar(Libro* libros, int numLibros, int index = 0) {
     if (index >= numLibros) {
         return;
     }
-
+//Para imprimir los textos en la parte superior
     if (index == 0) {
         cout << "+-----------------------------+" << endl;
         cout << "| " << setw(30) << left << "Titulo" << " | "
@@ -133,7 +133,7 @@ void mostrar(Libro* libros, int numLibros, int index = 0) {
              << setw(20) << left << "Editorial" << " | "
              << setw(10) << left << "Idioma" << " |" << endl;
     }
-
+//Para imprimir los datos abajo
     cout << "| " << setw(30) << left << (*(libros + index)).sTitulo << " | "
          << setw(30) << left << (*(libros + index)).sAutor << " | "
          << setw(15) << left << (*(libros + index)).sISBN << " | "
