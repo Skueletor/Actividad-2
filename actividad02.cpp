@@ -6,6 +6,7 @@
 
 using namespace std;
 
+//Función para limpiar la pantalla después de cada ejecución (estética)
 void clearScreen() {
 #ifdef _WIN32
     system("cls");
@@ -73,6 +74,7 @@ void SubMenuBusqueda() {
 }
 
 void generardatos(Libro* libros, int numLibros) {
+	//Datos de los libros
     const string listaLibros[] = {"Aprende C", "Aprende PHP", "Aprende Linux", "Programacion", "Programacion POO", "Algoritmos de Datos", "Inteligencia Artificial", "Desarrollo Web", "Bases de Datos"};
     const string listaAutores[] = {"Adela Zamudio", "Jaime Mendoza Gonzales", "Armando Chirveches", "Manuel Vargas", "Emilio Martinez Cardona", "Isabel Mesa de Inchauste", "Enrique Finot", "Gladys Rivero de Jimenez", "Hugo Menacho"};
     const string listaEditoriales[] = {"EPDB", "La Hoguera", "El Pais", "3K", "Muela del Diablo", "El Cuervo", "Grito del Viento", "Nuevo Milenio", "Libros del Cardon", "Nuevo Mundo", "El Sol", "Monte Avila", "Los Amigos del Libro", "Punto de Lectura","El Quetzal"};
@@ -91,6 +93,7 @@ void generardatos(Libro* libros, int numLibros) {
 
 
 void generardatos(Usuario* usuarios, int numUsuarios, const string* listaNombres, const string* listaApellidos) {
+	//Datos de los usuarios para el tipo
     string listaTiposUsuarios[] = {"Estudiante", "Profesor", "Administrativo"};
 
     for (int i = 0; i < numUsuarios; ++i) {
@@ -192,12 +195,12 @@ void buscar(Libro* libros, int numLibros, const string& textoBusqueda, int indic
         }
         return;
     }
-
+//Función para convertir texto ingresado por el usuario en minúscula
     string textoMinusculas = textoBusqueda;
     for (char& c : textoMinusculas) {
         c = tolower(c);
     }
-
+//Función para convertir título del libro en minúscula
     string tituloMinusculas = (*(libros + indice)).sTitulo;
     for (char& c : tituloMinusculas) {
         c = tolower(c);
@@ -235,12 +238,12 @@ void buscar(Usuario* usuarios, int numUsuarios, const string& texto, int indice 
         }
         return;
     }
-
+//Función para convertir texto ingresado por el usuario en minúscula
     string textoMinusculas = texto;
     for (char& c : textoMinusculas) {
         c = tolower(c);
     }
-
+//Función para convertir el nombre y apellido en minúscula
     string nombreMinusculas = (*(usuarios + indice)).sNombre;
     string apellidoMinusculas = (*(usuarios + indice)).sApellido;
     for (char& c : nombreMinusculas) {
@@ -276,12 +279,12 @@ void buscar(Bibliotecario* bibliotecarios, int numBibliotecarios, const string& 
         }
         return;
     }
-
+//Función para convertir texto ingresado por el usuario en minúscula
     string textoMinusculas = texto;
     for (char& c : textoMinusculas) {
         c = tolower(c);
     }
-
+//Función para convertir el nombre y apellido en minúscula
     string nombreMinusculas = (*(bibliotecarios + indice)).sNombre;
     string apellidoMinusculas = (*(bibliotecarios + indice)).sApellido;
     for (char& c : nombreMinusculas) {
@@ -321,6 +324,7 @@ int main() {
     Usuario* usuarios = new Usuario[numUsuarios];
     Bibliotecario* bibliotecarios = new Bibliotecario[numBibliotecarios];
 
+	//Nombres en una constante
     const string LISTANOMBRES[] = {"Juan", "Maria", "Luis", "Ana", "Carlos", "Antonio", "Ricardo", "Noelia"};
     const string LISTAAPELLIDOS[] = {"Gomez", "Perez", "Martinez", "Ramirez", "Rodriguez", "Fernandez", "Leon", "Flores"};
 
